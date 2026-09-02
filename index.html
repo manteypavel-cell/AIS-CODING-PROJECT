@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Akosombo International School</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Devicon Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <!-- VS Code Codicons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@vscode/codicons/dist/codicon.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+    <link rel="icon" type="image/png" href="school_crest.png">
+    <script src="app.js" defer></script>
+</head>
+<body>
+
+    <!-- ═══════════════ HEADER (Logo in the Middle) ═══════════════ -->
+    <header>
+        <nav class="header">
+            <a href="index.html" class="link active"><i class="codicon codicon-home"></i> HOME</a>
+            <a href="about.html" class="link"><i class="codicon codicon-info"></i> ABOUT US</a>
+            <a href="alumni.html" class="link"><i class="codicon codicon-organization"></i> ALUMNI</a>
+
+            <!-- Logo in the middle -->
+            <div class="logo-wrapper" onclick="window.location.href='index.html'" title="Akosombo International School">
+                <img src="school_crest.png" alt="School Crest">
+            </div>
+
+            <a href="gallery.html" class="link"><i class="codicon codicon-device-camera"></i> GALLERY</a>
+            <a href="news.html" class="link"><i class="codicon codicon-megaphone"></i> NEWS &amp; EVENTS</a>
+            <a href="contact.html" class="link"><i class="codicon codicon-mail"></i> CONTACT US</a>
+
+            <!-- Toggles proportioned to (________) -->
+            <div class="header-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
+                    <i class="fas fa-sun icon-sun"></i>
+                    <i class="fas fa-moon icon-moon"></i>
+                    <div class="theme-toggle-thumb"></div>
+                </button>
+                <button class="hamburger-btn" aria-label="Toggle Menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" class="link"><i class="codicon codicon-home"></i> Home <i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="about.html" class="link"><i class="codicon codicon-info"></i> About Us <i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="alumni.html" class="link"><i class="codicon codicon-organization"></i> Alumni <i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="gallery.html" class="link"><i class="codicon codicon-device-camera"></i> Gallery <i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="news.html" class="link"><i class="codicon codicon-megaphone"></i> News &amp; Events <i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="contact.html" class="link"><i class="codicon codicon-mail"></i> Contact Us <i class="fas fa-chevron-right"></i></a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- ═══════════════ HERO SECTION ═══════════════ -->
+        <section class="hero">
+            <div class="hero-content">
+                <span class="badge-pill">
+                    <i class="codicon codicon-mortar-board"></i> World-Class Education in Ghana
+                </span>
+                <h1>Akosombo International School</h1>
+                <h2>"Truth is Our Light"</h2>
+                
+                <div class="description">
+                    <h2>Where Great Minds are Made</h2>
+                    <p>
+                        Established in the serene landscape of Akosombo, Eastern Region, AIS has been nurturing visionary minds, moral leaders, and global achievers for over 65 years. From Nursery through Senior High School, we offer an inspiring educational journey of discovery and excellence.
+                    </p>
+                </div>
+                
+                <div class="buttons">
+                    <a href="contact.html"><button class="cta1"><i class="codicon codicon-send"></i> Contact Us</button></a>
+                    <a href="about.html"><button class="cta2"><i class="codicon codicon-book"></i> Learn More</button></a>
+                </div>
+            </div>
+
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="placeholder.png" alt="AIS Campus 1">
+                        <div class="swiper-slide-icon-overlay">
+                            <i class="codicon codicon-mortar-board"></i> AIS Campus Life
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="placeholder.png" alt="AIS Campus 2">
+                        <div class="swiper-slide-icon-overlay">
+                            <i class="codicon codicon-library"></i> Digital Learning Hub
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="placeholder.png" alt="AIS Campus 3">
+                        <div class="swiper-slide-icon-overlay">
+                            <i class="codicon codicon-beaker"></i> STEM &amp; Robotics Labs
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="placeholder.png" alt="AIS Campus 4">
+                        <div class="swiper-slide-icon-overlay">
+                            <i class="fas fa-running"></i> Athletics &amp; Sports
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="placeholder.png" alt="AIS Campus 5">
+                        <div class="swiper-slide-icon-overlay">
+                            <i class="fas fa-music"></i> Performing Arts &amp; Music
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="placeholder.png" alt="AIS Campus 6">
+                        <div class="swiper-slide-icon-overlay">
+                            <i class="fas fa-microscope"></i> Biology &amp; Chemistry Studio
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="placeholder.png" alt="AIS Campus 7">
+                        <div class="swiper-slide-icon-overlay">
+                            <i class="fas fa-futbol"></i> Soccer Championship Arena
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="placeholder.png" alt="AIS Campus 8">
+                        <div class="swiper-slide-icon-overlay">
+                            <i class="fas fa-award"></i> Valedictory Honors
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ WHY CHOOSE AIS ═══════════════ -->
+        <section class="about">
+            <span class="badge-pill" style="display:table; margin:0 auto 12px;"><i class="codicon codicon-verified-filled"></i> Proven Heritage</span>
+            <h2 class="section-header">WHY CHOOSE AIS?</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="icon-badge-circle">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h1 class="counter">65+</h1>
+                    <p>Years of Educational Service</p>
+                </div>
+                <div class="feature">
+                    <div class="icon-badge-squircle">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h1 class="counter">90%</h1>
+                    <p>WASSCE Distinction Rate</p>
+                </div>
+                <div class="feature">
+                    <div class="icon-badge-organic">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h1 class="counter">50+</h1>
+                    <p>Dedicated &amp; Expert Teachers</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ NOTABLE ALUMNI (Expanded Placeholders) ═══════════════ -->
+        <section class="alumni">
+            <span class="badge-pill" style="display:table; margin:0 auto 12px;"><i class="codicon codicon-organization"></i> Global Network</span>
+            <h2 class="section-header">OUR NOTABLE ALUMNI</h2>
+            <div class="people">
+                <div class="person">
+                    <img src="placeholder.png" alt="Alumni Person 1">
+                    <div class="person-info">
+                        <div class="icon-badge-squircle" style="width:46px; height:46px; font-size:1.3rem; margin-bottom:4px;">
+                            <i class="devicon-python-plain"></i>
+                        </div>
+                        <h3>Dr. Kwame Mensah</h3>
+                        <p>Class of 2010 · AI Researcher</p>
+                        <div class="person-icons">
+                            <i class="devicon-javascript-plain"></i>
+                            <i class="devicon-react-original"></i>
+                            <i class="codicon codicon-terminal"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="person">
+                    <img src="placeholder.png" alt="Alumni Person 2">
+                    <div class="person-info">
+                        <div class="icon-badge-circle" style="width:46px; height:46px; font-size:1.3rem; margin-bottom:4px;">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Dr. Ama Boateng</h3>
+                        <p>Class of 2011 · Chief Medical Officer</p>
+                        <div class="person-icons">
+                            <i class="fas fa-user-md"></i>
+                            <i class="fas fa-stethoscope"></i>
+                            <i class="codicon codicon-heart"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="person">
+                    <img src="placeholder.png" alt="Alumni Person 3">
+                    <div class="person-info">
+                        <div class="icon-badge-organic" style="width:46px; height:46px; font-size:1.3rem; margin-bottom:4px;">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h3>Esi Annan, Esq.</h3>
+                        <p>Class of 2012 · Legal Counsel</p>
+                        <div class="person-icons">
+                            <i class="fas fa-gavel"></i>
+                            <i class="codicon codicon-law"></i>
+                            <i class="fas fa-globe"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="person">
+                    <img src="placeholder.png" alt="Alumni Person 4">
+                    <div class="person-info">
+                        <div class="icon-badge-squircle" style="width:46px; height:46px; font-size:1.3rem; margin-bottom:4px;">
+                            <i class="fas fa-solar-panel"></i>
+                        </div>
+                        <h3>Kwame Osei, PE</h3>
+                        <p>Class of 2013 · Clean Grid Director</p>
+                        <div class="person-icons">
+                            <i class="fas fa-bolt"></i>
+                            <i class="codicon codicon-server-process"></i>
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="person">
+                    <img src="placeholder.png" alt="Alumni Person 5">
+                    <div class="person-info">
+                        <div class="icon-badge-circle" style="width:46px; height:46px; font-size:1.3rem; margin-bottom:4px;">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Nana Aba Darko</h3>
+                        <p>Class of 2015 · Fintech Founder</p>
+                        <div class="person-icons">
+                            <i class="fas fa-coins"></i>
+                            <i class="devicon-flutter-plain"></i>
+                            <i class="codicon codicon-rocket"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="person">
+                    <img src="placeholder.png" alt="Alumni Person 6">
+                    <div class="person-info">
+                        <div class="icon-badge-organic" style="width:46px; height:46px; font-size:1.3rem; margin-bottom:4px;">
+                            <i class="fas fa-drafting-compass"></i>
+                        </div>
+                        <h3>Yaw Acheampong</h3>
+                        <p>Class of 2016 · Sustainable Architect</p>
+                        <div class="person-icons">
+                            <i class="fas fa-city"></i>
+                            <i class="codicon codicon-symbol-ruler"></i>
+                            <i class="fas fa-building"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="person">
+                    <img src="placeholder.png" alt="Alumni Person 7">
+                    <div class="person-info">
+                        <div class="icon-badge-squircle" style="width:46px; height:46px; font-size:1.3rem; margin-bottom:4px;">
+                            <i class="fas fa-satellite"></i>
+                        </div>
+                        <h3>Dr. Samuel Tetteh</h3>
+                        <p>Class of 2018 · Aerospace Scientist</p>
+                        <div class="person-icons">
+                            <i class="devicon-cplusplus-plain"></i>
+                            <i class="codicon codicon-radar"></i>
+                            <i class="fas fa-space-shuttle"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="person">
+                    <img src="placeholder.png" alt="Alumni Person 8">
+                    <div class="person-info">
+                        <div class="icon-badge-circle" style="width:46px; height:46px; font-size:1.3rem; margin-bottom:4px;">
+                            <i class="fas fa-globe-africa"></i>
+                        </div>
+                        <h3>Akua Frempong</h3>
+                        <p>Class of 2020 · Global Policy Strategist</p>
+                        <div class="person-icons">
+                            <i class="fas fa-landmark"></i>
+                            <i class="codicon codicon-organization"></i>
+                            <i class="fas fa-award"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align:center;">
+                <a href="alumni.html" class="alumni-link-btn">
+                    <i class="codicon codicon-arrow-right"></i> View Full Alumni Directory
+                </a>
+            </div>
+        </section>
+
+        <!-- ═══════════════ WHAT WE OFFER (9 Cards) ═══════════════ -->
+        <section class="curriculum">
+            <span class="badge-pill" style="display:table; margin:0 auto 12px;"><i class="codicon codicon-layers"></i> Comprehensive Programs</span>
+            <h2 class="section-header">WHAT WE OFFER</h2>
+            <div class="things">
+                <div class="thing">
+                    <img src="placeholder.png" alt="Diverse Curriculum">
+                    <div class="thing-description">
+                        <div class="icon-badge-circle" style="width:48px; height:48px; font-size:1.2rem; margin-bottom:4px;"><i class="codicon codicon-book"></i></div>
+                        <h2>DIVERSE CURRICULUM</h2>
+                    </div>
+                </div>
+
+                <div class="thing">
+                    <img src="placeholder.png" alt="Premium Care">
+                    <div class="thing-description">
+                        <div class="icon-badge-squircle" style="width:48px; height:48px; font-size:1.2rem; margin-bottom:4px;"><i class="fas fa-hands-helping"></i></div>
+                        <h2>PREMIUM CARE</h2>
+                    </div>
+                </div>
+
+                <div class="thing">
+                    <img src="placeholder.png" alt="Cutting Edge Facilities">
+                    <div class="thing-description">
+                        <div class="icon-badge-organic" style="width:48px; height:48px; font-size:1.2rem; margin-bottom:4px;"><i class="codicon codicon-beaker"></i></div>
+                        <h2>MODERN FACILITIES</h2>
+                    </div>
+                </div>
+
+                <div class="thing">
+                    <img src="placeholder.png" alt="Clubs">
+                    <div class="thing-description">
+                        <div class="icon-badge-squircle" style="width:48px; height:48px; font-size:1.2rem; margin-bottom:4px;"><i class="devicon-cplusplus-plain"></i></div>
+                        <h2>CLUBS &amp; SOCIETIES</h2>
+                    </div>
+                </div>
+
+                <div class="thing">
+                    <img src="placeholder.png" alt="Sports">
+                    <div class="thing-description">
+                        <div class="icon-badge-circle" style="width:48px; height:48px; font-size:1.2rem; margin-bottom:4px;"><i class="fas fa-running"></i></div>
+                        <h2>SPORTS &amp; ATHLETICS</h2>
+                    </div>
+                </div>
+
+                <div class="thing">
+                    <img src="placeholder.png" alt="Premium Education">
+                    <div class="thing-description">
+                        <div class="icon-badge-organic" style="width:48px; height:48px; font-size:1.2rem; margin-bottom:4px;"><i class="fas fa-certificate"></i></div>
+                        <h2>PREMIUM EDUCATION</h2>
+                    </div>
+                </div>
+
+                <div class="thing">
+                    <img src="placeholder.png" alt="Digital Learning">
+                    <div class="thing-description">
+                        <div class="icon-badge-circle" style="width:48px; height:48px; font-size:1.2rem; margin-bottom:4px;"><i class="codicon codicon-circuit-board"></i></div>
+                        <h2>DIGITAL INNOVATION</h2>
+                    </div>
+                </div>
+
+                <div class="thing">
+                    <img src="placeholder.png" alt="Performing Arts">
+                    <div class="thing-description">
+                        <div class="icon-badge-squircle" style="width:48px; height:48px; font-size:1.2rem; margin-bottom:4px;"><i class="fas fa-palette"></i></div>
+                        <h2>ARTS &amp; CULTURE</h2>
+                    </div>
+                </div>
+
+                <div class="thing">
+                    <img src="placeholder.png" alt="Boarding House">
+                    <div class="thing-description">
+                        <div class="icon-badge-organic" style="width:48px; height:48px; font-size:1.2rem; margin-bottom:4px;"><i class="fas fa-bed"></i></div>
+                        <h2>BOARDING LIFE</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════ CAMPUS SHOWCASE GALLERY (Extra Home Placeholders) ═══════════════ -->
+        <section class="section" style="background:var(--bg-main);">
+            <div class="container text-center">
+                <span class="badge-pill"><i class="codicon codicon-device-camera"></i> Campus Spotlight</span>
+                <h2 class="section-header">LIFE &amp; FACILITIES AT AIS</h2>
+                <p class="section-desc">A glance into our serene learning environments, boarding complexes, sports pavilions, and creative studios.</p>
+                
+                <div class="home-showcase-grid">
+                    <div class="home-showcase-card">
+                        <img src="placeholder.png" alt="Campus Feature 1">
+                        <div class="home-showcase-overlay">
+                            <span>ACADEMICS</span>
+                            <h4>Main Administration &amp; Clock Tower</h4>
+                        </div>
+                    </div>
+                    <div class="home-showcase-card">
+                        <img src="placeholder.png" alt="Campus Feature 2">
+                        <div class="home-showcase-overlay">
+                            <span>FACILITIES</span>
+                            <h4>Central E-Library &amp; Study Commons</h4>
+                        </div>
+                    </div>
+                    <div class="home-showcase-card">
+                        <img src="placeholder.png" alt="Campus Feature 3">
+                        <div class="home-showcase-overlay">
+                            <span>SCIENCE</span>
+                            <h4>Advanced Physics &amp; Chemistry Studio</h4>
+                        </div>
+                    </div>
+                    <div class="home-showcase-card">
+                        <img src="placeholder.png" alt="Campus Feature 4">
+                        <div class="home-showcase-overlay">
+                            <span>SPORTS</span>
+                            <h4>Olympic All-Weather Track</h4>
+                        </div>
+                    </div>
+                    <div class="home-showcase-card">
+                        <img src="placeholder.png" alt="Campus Feature 5">
+                        <div class="home-showcase-overlay">
+                            <span>ATHLETICS</span>
+                            <h4>Championship Soccer Field</h4>
+                        </div>
+                    </div>
+                    <div class="home-showcase-card">
+                        <img src="placeholder.png" alt="Campus Feature 6">
+                        <div class="home-showcase-overlay">
+                            <span>ARTS</span>
+                            <h4>Acoustic Concert Auditorium</h4>
+                        </div>
+                    </div>
+                    <div class="home-showcase-card">
+                        <img src="placeholder.png" alt="Campus Feature 7">
+                        <div class="home-showcase-overlay">
+                            <span>TECHNOLOGY</span>
+                            <h4>Robotics &amp; AI Laboratory</h4>
+                        </div>
+                    </div>
+                    <div class="home-showcase-card">
+                        <img src="placeholder.png" alt="Campus Feature 8">
+                        <div class="home-showcase-overlay">
+                            <span>COMMUNITY</span>
+                            <h4>Lake Volta Scenic Pavilion</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align:center; margin-top:32px;">
+                    <a href="gallery.html" class="alumni-link-btn">
+                        <i class="codicon codicon-images"></i> Explore Full Photo Gallery
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ═══════════════ FOOTER (Full School Name) ═══════════════ -->
+    <footer>
+        <div class="footer-wrapper">
+            <div class="footer-logo">
+                <div class="logo-wrapper" style="height:64px; width:64px; background:#FFFFFF; margin-bottom:8px;">
+                    <img src="school_crest.png" alt="School Crest">
+                </div>
+                <h2>Akosombo International School</h2>
+                <p style="font-size:0.85rem; color:#94A3B8;">
+                    Akosombo International School · Volta River Authority (VRA) Schools System.
+                </p>
+            </div>
+
+            <section class="links">
+                <h2>QUICK LINKS</h2>
+                <ul>
+                    <li><a href="index.html"><i class="codicon codicon-home"></i> Home</a></li>
+                    <li><a href="about.html"><i class="codicon codicon-info"></i> About Us</a></li>
+                    <li><a href="alumni.html"><i class="codicon codicon-organization"></i> Our Alumni</a></li>
+                    <li><a href="gallery.html"><i class="codicon codicon-device-camera"></i> Gallery</a></li>
+                    <li><a href="news.html"><i class="codicon codicon-megaphone"></i> News &amp; Events</a></li>
+                    <li><a href="contact.html"><i class="codicon codicon-mail"></i> Contact Us</a></li>
+                </ul>
+            </section>
+
+            <section class="social-media">
+                <h2>CONNECT WITH US</h2>
+                <p style="font-size:0.85rem; color:#94A3B8; margin-bottom:12px;">Stay connected across all platforms:</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/vraschools" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Snapchat"><i class="fab fa-snapchat-ghost"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </section>
+        </div>
+        <p class="credits">This site was developed by the AIS CODING PROJECT TEAM</p>
+    </footer>
+
+    <!-- Swiper JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            direction: 'horizontal',
+            slidesPerView: 1,
+            loop: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    </script>
+</body>
+</html>

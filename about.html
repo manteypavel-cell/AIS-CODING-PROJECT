@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Akosombo International School</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Devicon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <!-- VS Code Codicons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@vscode/codicons/dist/codicon.css">
+    <link rel="icon" type="image/png" href="school_crest.png">
+    <script src="app.js" defer></script>
+</head>
+<body>
+
+    <!-- ═══════════════ HEADER (Logo in the Middle) ═══════════════ -->
+    <header>
+        <nav class="header">
+            <a href="index.html" class="link"><i class="codicon codicon-home"></i> HOME</a>
+            <a href="about.html" class="link active"><i class="codicon codicon-info"></i> ABOUT US</a>
+            <a href="alumni.html" class="link"><i class="codicon codicon-organization"></i> ALUMNI</a>
+
+            <!-- Logo in the middle -->
+            <div class="logo-wrapper" onclick="window.location.href='index.html'" title="Akosombo International School">
+                <img src="school_crest.png" alt="School Crest">
+            </div>
+
+            <a href="gallery.html" class="link"><i class="codicon codicon-device-camera"></i> GALLERY</a>
+            <a href="news.html" class="link"><i class="codicon codicon-megaphone"></i> NEWS &amp; EVENTS</a>
+            <a href="contact.html" class="link"><i class="codicon codicon-mail"></i> CONTACT US</a>
+
+            <!-- Compact Sun & Moon Theme Toggle & Shortened Hamburger -->
+            <div class="header-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
+                    <i class="fas fa-sun icon-sun"></i>
+                    <i class="fas fa-moon icon-moon"></i>
+                    <div class="theme-toggle-thumb"></div>
+                </button>
+                <button class="hamburger-btn" aria-label="Toggle Menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" class="link"><i class="codicon codicon-home"></i> Home <i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="about.html" class="link"><i class="codicon codicon-info"></i> About Us <i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="alumni.html" class="link"><i class="codicon codicon-organization"></i> Alumni <i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="gallery.html" class="link"><i class="codicon codicon-device-camera"></i> Gallery <i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="news.html" class="link"><i class="codicon codicon-megaphone"></i> News &amp; Events <i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="contact.html" class="link"><i class="codicon codicon-mail"></i> Contact Us <i class="fas fa-chevron-right"></i></a></li>
+        </ul>
+    </div>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="hero-content">
+            <div class="breadcrumb">
+                <a href="index.html"><i class="codicon codicon-home"></i> Home</a>
+                <span style="font-size:0.6rem; color:var(--text-muted);"><i class="fas fa-circle"></i></span>
+                <span style="color:var(--text-dark); font-weight:700;">About Us</span>
+            </div>
+            <span class="badge-pill"><i class="codicon codicon-history"></i> Legacy of Distinction</span>
+            <h1 class="section-header" style="font-size:2.8rem;">Discover Our Story</h1>
+            <p class="section-desc">A legacy of academic excellence, character formation, and community impact — shaping Ghana's future leaders since 1962.</p>
+        </div>
+    </section>
+
+    <!-- ═══════════════ BRIEF HISTORY ═══════════════ -->
+    <section class="section" id="history">
+        <div class="history-grid">
+            <div class="history-image-wrapper">
+                <img src="placeholder.png" alt="Akosombo International School Campus" loading="lazy">
+                <div class="history-badge">
+                    <i class="codicon codicon-star-full"></i> Est. 1962 · Excellence
+                </div>
+            </div>
+            <div class="history-text">
+                <span class="badge-pill"><i class="codicon codicon-bookmark"></i> Our History</span>
+                <h2 class="section-header" style="text-align:left; font-size:2.2rem; margin-bottom:16px;">A Proud Heritage of Learning</h2>
+                <div style="display:inline-flex; align-items:center; gap:8px; background:var(--cyan-pale); color:var(--cyan-dark); font-weight:700; padding:8px 16px; border-radius:var(--radius-full); font-size:0.9rem; margin-bottom:16px;">
+                    <i class="codicon codicon-calendar"></i> Founded with a Vision
+                </div>
+                <p style="margin-bottom:14px; color:var(--text-medium); line-height:1.8;">
+                    <strong>Akosombo International School (AIS)</strong> was established to provide world-class education within the serene and picturesque environment of Akosombo, in the Eastern Region of Ghana. The school was founded with a clear mission: to nurture young minds into confident, compassionate, and competent individuals ready to excel in a rapidly changing world.
+                </p>
+                <p style="margin-bottom:14px; color:var(--text-medium); line-height:1.8;">
+                    From its beginnings, AIS has grown into a prestigious institution known for its rigorous academic programmes, strong moral grounding, and a vibrant community spirit. Over the years, the school has expanded its facilities, enriched its curriculum, and built a reputation as one of the leading international schools in the region.
+                </p>
+                <p style="color:var(--text-medium); line-height:1.8;">
+                    Today, AIS proudly serves students from <strong>Nursery through to Senior High School (SHS)</strong>, offering a seamless educational journey that lays a solid foundation in the early years and culminates in outstanding WASSCE results and university placements.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ EDUCATION JOURNEY ═══════════════ -->
+    <section class="section section-alt" id="journey" style="background:var(--bg-card);">
+        <div class="container text-center">
+            <span class="badge-pill"><i class="codicon codicon-milestone"></i> Educational Pathway</span>
+            <h2 class="section-header">From Nursery to SHS</h2>
+            <p class="section-desc">We provide a complete and continuous educational pathway, guiding each child from their earliest steps all the way to pre-university excellence.</p>
+            
+            <div class="journey-timeline">
+                <div class="journey-step">
+                    <div class="step-icon"><i class="fas fa-baby"></i></div>
+                    <div style="font-weight:800; font-size:1rem; color:var(--text-dark);">Nursery</div>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">Ages 1–3</div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-icon" style="background:linear-gradient(135deg, var(--yellow-dark), #B45309);"><i class="fas fa-child"></i></div>
+                    <div style="font-weight:800; font-size:1rem; color:var(--text-dark);">Kindergarten</div>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">Ages 3–5</div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-icon"><i class="fas fa-book-open"></i></div>
+                    <div style="font-weight:800; font-size:1rem; color:var(--text-dark);">Primary</div>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">Classes 1–6</div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-icon" style="background:linear-gradient(135deg, var(--yellow-dark), #B45309);"><i class="fas fa-flask"></i></div>
+                    <div style="font-weight:800; font-size:1rem; color:var(--text-dark);">JHS</div>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">Forms 1–3</div>
+                </div>
+
+                <div class="journey-step">
+                    <div class="step-icon" style="background:linear-gradient(135deg, var(--blue-primary), #0F2942);"><i class="fas fa-graduation-cap"></i></div>
+                    <div style="font-weight:800; font-size:1rem; color:var(--text-dark);">SHS</div>
+                    <div style="font-size:0.8rem; color:var(--text-muted);">Forms 1–3</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ LEADERSHIP ═══════════════ -->
+    <section class="section" id="leadership">
+        <div class="container text-center">
+            <span class="badge-pill"><i class="codicon codicon-shield"></i> Administration</span>
+            <h2 class="section-header">Meet the Leadership Team</h2>
+            <p class="section-desc">Dedicated professionals committed to steering Akosombo International School towards continued excellence and holistic student development.</p>
+            
+            <div class="leaders-grid">
+                <div class="leader-card">
+                    <div class="leader-avatar">SA</div>
+                    <h3 style="font-size:1.2rem; font-weight:800; color:var(--text-dark);">Mrs. Sara Freda Adei</h3>
+                    <p style="font-size:0.88rem; color:var(--cyan-dark); font-weight:700; margin-bottom:10px;">Acting Headmistress – SHS</p>
+                    <p style="font-size:0.88rem; color:var(--text-medium); line-height:1.6;">A visionary educator with a passion for academic excellence and student welfare. Fostering a culture of discipline, innovation, and high achievement.</p>
+                </div>
+
+                <div class="leader-card">
+                    <div class="leader-avatar" style="background:linear-gradient(135deg, var(--yellow-pale), var(--yellow)); color:var(--yellow-max-dark);">FK</div>
+                    <h3 style="font-size:1.2rem; font-weight:800; color:var(--text-dark);">Mr. Francis Asare Korang</h3>
+                    <p style="font-size:0.88rem; color:var(--yellow-dark); font-weight:700; margin-bottom:10px;">Acting Assistant Headmaster – Administration</p>
+                    <p style="font-size:0.88rem; color:var(--text-medium); line-height:1.6;">A seasoned administrator who ensures the smooth day-to-day operations of the school, bringing structure and operational excellence.</p>
+                </div>
+
+                <div class="leader-card">
+                    <div class="leader-avatar" style="background:linear-gradient(135deg, #DCFCE7, #86EFAC); color:#15803D;">RD</div>
+                    <h3 style="font-size:1.2rem; font-weight:800; color:var(--text-dark);">Mr. Raphael Doe</h3>
+                    <p style="font-size:0.88rem; color:#15803D; font-weight:700; margin-bottom:10px;">Manager &amp; Finance</p>
+                    <p style="font-size:0.88rem; color:var(--text-medium); line-height:1.6;">Oversees the financial stewardship and strategic management of the school's resources, ensuring sound fiscal planning.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ CORE VALUES ═══════════════ -->
+    <section class="section section-alt" id="values" style="background:var(--bg-card);">
+        <div class="container text-center">
+            <span class="badge-pill"><i class="codicon codicon-heart"></i> Core Pillars</span>
+            <h2 class="section-header">Our Core Values</h2>
+            <p class="section-desc">These principles guide every decision we make and every interaction we have within our school community.</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="icon-badge-circle" style="width:48px; height:48px; font-size:1.2rem; margin-bottom:12px;"><i class="fas fa-shield-alt"></i></div>
+                    <h4 style="font-weight:800; margin-bottom:4px; color:var(--text-dark);">Integrity</h4>
+                    <p style="font-size:0.85rem; color:var(--text-light);">We uphold honesty, transparency, and strong moral principles in all our endeavours.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="icon-badge-squircle" style="width:48px; height:48px; font-size:1.2rem; margin-bottom:12px;"><i class="fas fa-trophy"></i></div>
+                    <h4 style="font-weight:800; margin-bottom:4px; color:var(--text-dark);">Excellence</h4>
+                    <p style="font-size:0.85rem; color:var(--text-light);">We strive for the highest standards in academics, character, and co-curricular pursuits.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="icon-badge-organic" style="width:48px; height:48px; font-size:1.2rem; margin-bottom:12px;"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h4 style="font-weight:800; margin-bottom:4px; color:var(--text-dark);">Discipline</h4>
+                    <p style="font-size:0.85rem; color:var(--text-light);">We foster a culture of mutual respect, self-regulation, and moral responsibility.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="icon-badge-circle" style="width:48px; height:48px; font-size:1.2rem; margin-bottom:12px;"><i class="fas fa-users"></i></div>
+                    <h4 style="font-weight:800; margin-bottom:4px; color:var(--text-dark);">Empathy</h4>
+                    <p style="font-size:0.85rem; color:var(--text-light);">We believe in the power of togetherness, service, and compassionate care.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="icon-badge-squircle" style="width:48px; height:48px; font-size:1.2rem; margin-bottom:12px;"><i class="fas fa-fire"></i></div>
+                    <h4 style="font-weight:800; margin-bottom:4px; color:var(--text-dark);">Hard Work</h4>
+                    <p style="font-size:0.85rem; color:var(--text-light);">We teach students that resilience and focused effort unlock unlimited potential.</p>
+                </div>
+
+                <div class="value-card">
+                    <div class="icon-badge-organic" style="width:48px; height:48px; font-size:1.2rem; margin-bottom:12px;"><i class="fas fa-lightbulb"></i></div>
+                    <h4 style="font-weight:800; margin-bottom:4px; color:var(--text-dark);">Honesty</h4>
+                    <p style="font-size:0.85rem; color:var(--text-light);">Anchored by our motto "Truth is Our Light", truthfulness guides every endeavor.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ AIM / MISSION ═══════════════ -->
+    <section class="section" id="aim">
+        <div class="aim-box">
+            <div class="icon-badge-circle" style="margin-bottom:14px;"><i class="codicon codicon-target"></i></div>
+            <h3 style="font-size:1.8rem; font-weight:800; margin-bottom:10px; color:var(--text-dark);">Our Aim &amp; Mission</h3>
+            <p style="font-size:1.05rem; color:var(--text-medium); line-height:1.8;">
+                To provide a <strong>holistic and inclusive education</strong> that empowers every student to discover their unique potential, embrace lifelong learning, and become <strong>ethical, innovative, and globally-minded leaders</strong>.
+            </p>
+        </div>
+    </section>
+
+    <!-- ═══════════════ CO-SCHOOLS (Item 6) ═══════════════ -->
+    <section class="section section-alt" id="coschools" style="background:var(--bg-card);">
+        <div class="container text-center">
+            <span class="badge-pill"><i class="codicon codicon-organization"></i> VRA Educational Family</span>
+            <h2 class="section-header">Our Co-Schools</h2>
+            <p class="section-desc">Akosombo International School is part of a broader educational family, collaborating with our sister campuses across Ghana to deliver high quality teaching and care.</p>
+            
+            <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:24px; max-width:1000px; margin:36px auto 0;">
+                <div class="leader-card" style="text-align:left; display:flex; flex-direction:column; gap:12px;">
+                    <div style="display:flex; align-items:center; gap:16px;">
+                        <div class="icon-badge-circle"><i class="fas fa-school"></i></div>
+                        <div>
+                            <h3 style="font-size:1.3rem; font-weight:800; color:var(--text-dark);">Akuse Campus</h3>
+                            <span style="font-size:0.85rem; color:var(--cyan-dark); font-weight:700;"><i class="fas fa-map-marker-alt"></i> Akuse, Eastern Region</span>
+                        </div>
+                    </div>
+                    <p style="font-size:0.92rem; color:var(--text-medium); line-height:1.7;">
+                        A vibrant sister campus established in 1982 extending the AIS legacy of excellence to the Akuse community, offering the same rigorous standards of teaching, moral grounding, and pastoral care.
+                    </p>
+                    <span class="badge-pill" style="align-self:flex-start; margin-top:auto;"><i class="codicon codicon-verified"></i> AIS Co-School</span>
+                </div>
+
+                <div class="leader-card" style="text-align:left; display:flex; flex-direction:column; gap:12px;">
+                    <div style="display:flex; align-items:center; gap:16px;">
+                        <div class="icon-badge-squircle"><i class="fas fa-university"></i></div>
+                        <div>
+                            <h3 style="font-size:1.3rem; font-weight:800; color:var(--text-dark);">Aboadze Campus</h3>
+                            <span style="font-size:0.85rem; color:var(--yellow-dark); font-weight:700;"><i class="fas fa-map-marker-alt"></i> Aboadze, Western Region</span>
+                        </div>
+                    </div>
+                    <p style="font-size:0.92rem; color:var(--text-medium); line-height:1.7;">
+                        Established in 1999 and dedicated to nurturing young learners in the Aboadze area, this campus embodies the AIS spirit of community-focused, innovative education and leadership.
+                    </p>
+                    <span class="badge-pill" style="align-self:flex-start; margin-top:auto;"><i class="codicon codicon-verified"></i> AIS Co-School</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER (Full School Name) ═══════════════ -->
+    <footer>
+        <div class="footer-wrapper">
+            <div class="footer-logo">
+                <div class="logo-wrapper" style="height:64px; width:64px; background:#FFFFFF; margin-bottom:8px;">
+                    <img src="school_crest.png" alt="School Crest">
+                </div>
+                <h2>Akosombo International School</h2>
+                <p style="font-size:0.85rem; color:#94A3B8;">
+                    Akosombo International School · Volta River Authority (VRA) Schools System.
+                </p>
+            </div>
+
+            <section class="links">
+                <h2>QUICK LINKS</h2>
+                <ul>
+                    <li><a href="index.html"><i class="codicon codicon-home"></i> Home</a></li>
+                    <li><a href="about.html"><i class="codicon codicon-info"></i> About Us</a></li>
+                    <li><a href="alumni.html"><i class="codicon codicon-organization"></i> Our Alumni</a></li>
+                    <li><a href="gallery.html"><i class="codicon codicon-device-camera"></i> Gallery</a></li>
+                    <li><a href="news.html"><i class="codicon codicon-megaphone"></i> News &amp; Events</a></li>
+                    <li><a href="contact.html"><i class="codicon codicon-mail"></i> Contact Us</a></li>
+                </ul>
+            </section>
+
+            <section class="social-media">
+                <h2>CONNECT WITH US</h2>
+                <p style="font-size:0.85rem; color:#94A3B8; margin-bottom:12px;">Stay connected across all platforms:</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/vraschools" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Snapchat"><i class="fab fa-snapchat-ghost"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </section>
+        </div>
+        <p class="credits">This site was developed by the AIS CODING PROJECT TEAM</p>
+    </footer>
+
+</body>
+</html>
