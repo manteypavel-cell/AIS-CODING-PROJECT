@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal | Akosombo International School</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- VS Code Codicons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@vscode/codicons/dist/codicon.css">
+    <link rel="icon" type="image/png" href="school_crest.png">
+    <script src="admin.js" defer></script>
+</head>
+<body class="admin-body">
+
+    <!-- ═══════════════ LOGIN OVERLAY SCREEN ═══════════════ -->
+    <div id="loginOverlay" class="login-screen">
+        <div class="login-card">
+            <div class="logo-wrapper" style="height:70px; width:70px; background:#FFFFFF; margin:0 auto 16px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 14px rgba(0,0,0,0.1);">
+                <img src="school_crest.png" alt="AIS Crest" style="height:54px; width:54px; object-fit:contain;">
+            </div>
+            <h2 style="font-size:1.4rem; font-weight:800; margin:0 0 6px; color:var(--blue-navy);">AIS Portal Admin</h2>
+            <p style="font-size:0.85rem; color:var(--text-light); margin:0 0 24px;">Sign in to manage news, gallery items, and student inquiries.</p>
+            
+            <form id="adminLoginForm" style="display:flex; flex-direction:column; gap:14px; text-align:left;">
+                <div class="form-group" style="margin:0;">
+                    <label for="loginUsername"><i class="codicon codicon-account"></i> Username</label>
+                    <input type="text" id="loginUsername" placeholder="admin" required value="admin" autocomplete="username">
+                </div>
+                <div class="form-group" style="margin:0;">
+                    <label for="loginPassword"><i class="codicon codicon-lock"></i> Password</label>
+                    <input type="password" id="loginPassword" placeholder="••••••••" required autocomplete="current-password">
+                </div>
+                <button type="submit" class="btn-primary" style="justify-content:center; width:100%; height:44px; margin-top:8px;">
+                    <i class="codicon codicon-sign-in"></i> Sign In to Portal
+                </button>
+            </form>
+            <div style="margin-top:20px; font-size:0.75rem; color:var(--text-muted);">
+                Default credentials: <code>admin</code> / <code>aisadmin2026</code>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════ ADMIN TOP BAR ═══════════════ -->
+    <header class="admin-navbar">
+        <a href="index.html" class="admin-brand">
+            <img src="school_crest.png" alt="AIS Crest">
+            <div class="admin-brand-text">
+                <h1>Akosombo International School</h1>
+                <span>Staff &amp; Content Management Portal</span>
+            </div>
+        </a>
+        <div class="admin-nav-actions">
+            <a href="index.html" class="btn-secondary" title="View Public Website" target="_blank">
+                <i class="codicon codicon-globe"></i> View Site
+            </a>
+            <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Theme">
+                <i class="fas fa-sun icon-sun"></i>
+                <i class="fas fa-moon icon-moon"></i>
+                <div class="theme-toggle-thumb"></div>
+            </button>
+            <button id="logoutBtn" class="btn-secondary" style="color:#DC2626; border-color:#FECACA;" title="Sign Out">
+                <i class="codicon codicon-sign-out"></i> Logout
+            </button>
+        </div>
+    </header>
+
+    <!-- ═══════════════ MAIN ADMIN LAYOUT ═══════════════ -->
+    <div class="admin-layout">
+        
+        <!-- SIDEBAR NAVIGATION -->
+        <aside class="admin-sidebar">
+            <button class="admin-nav-item active" data-tab="tab-overview">
+                <i class="codicon codicon-dashboard"></i> Overview
+            </button>
+            <button class="admin-nav-item" data-tab="tab-news">
+                <i class="codicon codicon-megaphone"></i> News &amp; Events
+            </button>
+            <button class="admin-nav-item" data-tab="tab-gallery">
+                <i class="codicon codicon-device-camera"></i> Photo Gallery
+            </button>
+            <button class="admin-nav-item" data-tab="tab-inquiries">
+                <i class="codicon codicon-mail"></i> Contact Inquiries
+                <span id="unreadBadge" class="admin-nav-badge" style="display:none;">0</span>
+            </button>
+            <button class="admin-nav-item" data-tab="tab-settings">
+                <i class="codicon codicon-settings-gear"></i> Settings
+            </button>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <main class="admin-content">
+            
+            <!-- 1. OVERVIEW TAB -->
+            <section id="tab-overview" class="admin-tab-panel active">
+                <div class="section-top-bar">
+                    <div class="section-title">
+                        <h2>Dashboard Overview</h2>
+                        <p>Welcome back, Administrator. Real-time metrics for Akosombo International School portal.</p>
+                    </div>
+                </div>
+
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper" style="background:var(--cyan-pale); color:var(--cyan-dark);">
+                            <i class="codicon codicon-megaphone"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="statNewsCount">0</h3>
+                            <p>News &amp; Events</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper" style="background:var(--yellow-pale); color:var(--yellow-dark);">
+                            <i class="codicon codicon-device-camera"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="statGalleryCount">0</h3>
+                            <p>Gallery Photos</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper" style="background:#E0E7FF; color:var(--blue-primary);">
+                            <i class="codicon codicon-mail"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 id="statUnreadCount">0</h3>
+                            <p>Unread Inquiries</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon-wrapper" style="background:#DCFCE7; color:#16A34A;">
+                            <i class="codicon codicon-server-process"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3 style="color:#16A34A; font-size:1.4rem;">ONLINE</h3>
+                            <p>Server &amp; API Health</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Action Panels -->
+                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:20px;">
+                    <!-- Recent Inquiries -->
+                    <div class="admin-card-container">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                            <h3 style="margin:0; font-size:1.1rem; font-weight:800;">Recent Inquiries</h3>
+                            <button class="btn-secondary" onclick="adminSwitchTab('tab-inquiries')" style="font-size:0.78rem;">View All</button>
+                        </div>
+                        <div id="overviewRecentInquiries">
+                            <p style="color:var(--text-muted); font-size:0.85rem;">Loading recent inquiries...</p>
+                        </div>
+                    </div>
+
+                    <!-- Recent News Articles -->
+                    <div class="admin-card-container">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                            <h3 style="margin:0; font-size:1.1rem; font-weight:800;">Latest Published News</h3>
+                            <button class="btn-secondary" onclick="adminSwitchTab('tab-news')" style="font-size:0.78rem;">Manage News</button>
+                        </div>
+                        <div id="overviewRecentNews">
+                            <p style="color:var(--text-muted); font-size:0.85rem;">Loading recent news...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. NEWS & EVENTS TAB -->
+            <section id="tab-news" class="admin-tab-panel">
+                <div class="section-top-bar">
+                    <div class="section-title">
+                        <h2>News &amp; Events Manager</h2>
+                        <p>Publish, edit, and categorize school news articles and headline banner slides.</p>
+                    </div>
+                    <button class="btn-primary" id="openCreateNewsModalBtn">
+                        <i class="codicon codicon-plus"></i> Publish New Article
+                    </button>
+                </div>
+
+                <div class="filter-bar">
+                    <div class="search-input-box">
+                        <i class="codicon codicon-search"></i>
+                        <input type="text" id="newsSearchInput" placeholder="Search news by title or content...">
+                    </div>
+                    <select id="newsCategoryFilter" style="padding:8px 14px; border-radius:var(--radius-full); border:1px solid var(--border-subtle); background:var(--bg-card-subtle); font-size:0.85rem;">
+                        <option value="all">All Categories</option>
+                        <option value="Academics">Academics</option>
+                        <option value="Competitions">Competitions</option>
+                        <option value="Campus">Campus Life</option>
+                        <option value="Sports">Sports</option>
+                        <option value="General">General</option>
+                    </select>
+                </div>
+
+                <div class="admin-card-container" style="padding:0; overflow:hidden;">
+                    <div style="overflow-x:auto;">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th style="width:70px;">Media</th>
+                                    <th>Title &amp; Excerpt</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                    <th>Headline</th>
+                                    <th style="text-align:right;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="newsTableBody">
+                                <tr><td colspan="6" style="text-align:center; padding:24px; color:var(--text-muted);">Loading news articles...</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. GALLERY MANAGEMENT TAB -->
+            <section id="tab-gallery" class="admin-tab-panel">
+                <div class="section-top-bar">
+                    <div class="section-title">
+                        <h2>Photo Gallery Manager</h2>
+                        <p>Upload photos, assign categories (Facilities, Sports, Events), and set image captions.</p>
+                    </div>
+                    <button class="btn-primary" id="openUploadGalleryModalBtn">
+                        <i class="codicon codicon-cloud-upload"></i> Upload Photo
+                    </button>
+                </div>
+
+                <div class="filter-bar">
+                    <div class="search-input-box">
+                        <i class="codicon codicon-search"></i>
+                        <input type="text" id="gallerySearchInput" placeholder="Search photos by title or caption...">
+                    </div>
+                    <div style="display:flex; gap:6px;">
+                        <button class="btn-secondary gallery-cat-pill active" data-category="all">All</button>
+                        <button class="btn-secondary gallery-cat-pill" data-category="facilities">Facilities</button>
+                        <button class="btn-secondary gallery-cat-pill" data-category="sports">Sports</button>
+                        <button class="btn-secondary gallery-cat-pill" data-category="events">Events</button>
+                    </div>
+                </div>
+
+                <div class="admin-gallery-grid" id="adminGalleryGrid">
+                    <p style="grid-column:1/-1; text-align:center; color:var(--text-muted); padding:30px;">Loading gallery photos...</p>
+                </div>
+            </section>
+
+            <!-- 4. CONTACT INQUIRIES TAB -->
+            <section id="tab-inquiries" class="admin-tab-panel">
+                <div class="section-top-bar">
+                    <div class="section-title">
+                        <h2>Contact Us Inquiries Inbox</h2>
+                        <p>Messages submitted through the public admissions and contact form on the website.</p>
+                    </div>
+                </div>
+
+                <div class="filter-bar">
+                    <div class="search-input-box">
+                        <i class="codicon codicon-search"></i>
+                        <input type="text" id="inquiriesSearchInput" placeholder="Search sender, email, or message keyword...">
+                    </div>
+                    <div style="display:flex; gap:6px;">
+                        <button class="btn-secondary inquiry-filter-pill active" data-status="all">All</button>
+                        <button class="btn-secondary inquiry-filter-pill" data-status="unread">Unread Only</button>
+                        <button class="btn-secondary inquiry-filter-pill" data-status="read">Read</button>
+                    </div>
+                </div>
+
+                <div id="inquiriesListContainer">
+                    <p style="text-align:center; color:var(--text-muted); padding:30px;">Loading contact inquiries...</p>
+                </div>
+            </section>
+
+            <!-- 5. SETTINGS TAB -->
+            <section id="tab-settings" class="admin-tab-panel">
+                <div class="section-top-bar">
+                    <div class="section-title">
+                        <h2>Admin Settings &amp; Security</h2>
+                        <p>Manage your administrative password and view portal system parameters.</p>
+                    </div>
+                </div>
+
+                <div style="max-width:600px;">
+                    <div class="admin-card-container">
+                        <h3 style="margin:0 0 16px; font-size:1.1rem; font-weight:800;">Change Admin Password</h3>
+                        <form id="changePasswordForm" style="display:flex; flex-direction:column; gap:14px;">
+                            <div class="form-group" style="margin:0;">
+                                <label for="currentPassword">Current Password</label>
+                                <input type="password" id="currentPassword" required placeholder="••••••••">
+                            </div>
+                            <div class="form-group" style="margin:0;">
+                                <label for="newPassword">New Password (minimum 6 characters)</label>
+                                <input type="password" id="newPassword" required minlength="6" placeholder="••••••••">
+                            </div>
+                            <button type="submit" class="btn-primary" style="align-self:flex-start; margin-top:6px;">
+                                <i class="codicon codicon-save"></i> Update Password
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- ═══════════════ MODALS ═══════════════ -->
+
+    <!-- NEWS CREATE / EDIT MODAL -->
+    <div id="newsModal" class="modal-backdrop">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="newsModalTitle">Publish News Article</h3>
+                <button class="modal-close-btn" id="closeNewsModalBtn">&times;</button>
+            </div>
+            <form id="newsForm">
+                <input type="hidden" id="newsEditId">
+                <div class="form-group">
+                    <label for="newsTitle">Article Title *</label>
+                    <input type="text" id="newsTitle" placeholder="e.g. AIS Students Excel in Robotics Championship" required>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                    <div class="form-group">
+                        <label for="newsDate">Display Date</label>
+                        <input type="text" id="newsDate" placeholder="e.g. August 28, 2026">
+                    </div>
+                    <div class="form-group">
+                        <label for="newsCategory">Category</label>
+                        <select id="newsCategory">
+                            <option value="Academics">Academics</option>
+                            <option value="Competitions">Competitions</option>
+                            <option value="Campus">Campus Life</option>
+                            <option value="Sports">Sports</option>
+                            <option value="General">General</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="newsSummary">Short Excerpt / Summary *</label>
+                    <textarea id="newsSummary" rows="2" placeholder="Brief 1-2 sentence description shown in news list..." required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="newsContent">Full Article Content</label>
+                    <textarea id="newsContent" rows="4" placeholder="Full story details..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Cover Photo</label>
+                    <div class="file-dropzone" id="newsDropzone">
+                        <i class="codicon codicon-cloud-upload" style="font-size:2rem; color:var(--cyan-dark); display:block; margin-bottom:6px;"></i>
+                        <span style="font-size:0.85rem; font-weight:700;">Click to upload image or drag &amp; drop</span>
+                        <input type="file" id="newsImageFileInput" accept="image/*" style="display:none;">
+                    </div>
+                    <input type="text" id="newsImageUrl" placeholder="Or enter image URL / filename (e.g. placeholder.png)" style="margin-top:8px;">
+                    <img id="newsPreviewImg" class="file-preview-img" alt="Preview">
+                </div>
+                <div class="form-group" style="display:flex; align-items:center; gap:8px;">
+                    <input type="checkbox" id="newsIsHeadline" style="width:auto;">
+                    <label for="newsIsHeadline" style="margin:0; cursor:pointer;">Feature as top headline / banner slider</label>
+                </div>
+                <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+                    <button type="button" class="btn-secondary" id="cancelNewsModalBtn">Cancel</button>
+                    <button type="submit" class="btn-primary" id="saveNewsBtn">
+                        <i class="codicon codicon-check"></i> Save Article
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- GALLERY UPLOAD MODAL -->
+    <div id="galleryModal" class="modal-backdrop">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 id="galleryModalTitle">Add Photo to Gallery</h3>
+                <button class="modal-close-btn" id="closeGalleryModalBtn">&times;</button>
+            </div>
+            <form id="galleryForm">
+                <input type="hidden" id="galleryEditId">
+                <div class="form-group">
+                    <label for="galleryTitle">Photo Title</label>
+                    <input type="text" id="galleryTitle" placeholder="e.g. Science Laboratory Session" required>
+                </div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+                    <div class="form-group">
+                        <label for="galleryCategory">Category *</label>
+                        <select id="galleryCategory">
+                            <option value="facilities">Facilities</option>
+                            <option value="sports">Sports</option>
+                            <option value="events">Events</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="gallerySize">Display Layout Size</label>
+                        <select id="gallerySize">
+                            <option value="medium">Medium Card</option>
+                            <option value="big">Big Showcase Card</option>
+                            <option value="small">Small Compact Card</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="galleryCaption">Caption / Description</label>
+                    <textarea id="galleryCaption" rows="2" placeholder="Optional description displayed when clicked..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Photo Source *</label>
+                    <div class="file-dropzone" id="galleryDropzone">
+                        <i class="codicon codicon-cloud-upload" style="font-size:2rem; color:var(--cyan-dark); display:block; margin-bottom:6px;"></i>
+                        <span style="font-size:0.85rem; font-weight:700;">Click to select image or drag &amp; drop</span>
+                        <input type="file" id="galleryFileInput" accept="image/*" style="display:none;">
+                    </div>
+                    <input type="text" id="galleryImageUrl" placeholder="Or enter image URL / filename (e.g. placeholder.png)" style="margin-top:8px;">
+                    <img id="galleryPreviewImg" class="file-preview-img" alt="Gallery Preview">
+                </div>
+                <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+                    <button type="button" class="btn-secondary" id="cancelGalleryModalBtn">Cancel</button>
+                    <button type="submit" class="btn-primary" id="saveGalleryBtn">
+                        <i class="codicon codicon-cloud-upload"></i> Upload &amp; Save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- VIEW INQUIRY DETAILS MODAL -->
+    <div id="inquiryDetailModal" class="modal-backdrop">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Contact Inquiry Details</h3>
+                <button class="modal-close-btn" id="closeInquiryModalBtn">&times;</button>
+            </div>
+            <div id="inquiryDetailContent">
+                <!-- Dynamically populated -->
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="adminToast" class="admin-toast">
+        <i class="codicon codicon-bell"></i>
+        <span id="adminToastMsg">Notification message</span>
+    </div>
+
+</body>
+</html>
