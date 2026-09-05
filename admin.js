@@ -4,20 +4,20 @@
  */
 
 const getApiBase = () => {
-    if (window.location.protocol === 'file:' || (window.location.port && window.location.port !== '3000')) {
-        return 'http://localhost:3000/api';
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.01' || window.location.protocol === 'file:') {
+        return 'http://localhost: 5000/api';
     }
-    return '/api';
+    return 'https://my-flask-backend-7cwg.onrender.com/api';
 };
 const API_BASE = getApiBase();
 
 function formatMediaUrl(url) {
     if (!url) return 'placeholder.png';
     if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) return url;
-    if (url.startsWith('/uploads/') && (window.location.protocol === 'file:' || (window.location.port && window.location.port !== '3000'))) {
-        return 'http://localhost:3000' + url;
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:'){
+        return 'http//localhost:5000' + url;
     }
-    return url;
+    return 'https://my-flask-backend-7cwg.onrender.com' + url;
 }
 
 let authToken = localStorage.getItem('ais_admin_token') || '';
