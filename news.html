@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News &amp; Events | Akosombo International School</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
@@ -31,7 +30,7 @@
 
             <!-- Logo in the middle -->
             <div class="logo-wrapper" onclick="window.location.href='index.html'" title="Akosombo International School">
-                <img src="school_crest.png" alt="School Crest">
+                <img src="{{url_for('static',filename='school_crest.png')}}" alt="School Crest">
             </div>
 
             <a href="gallery.html" class="link"><i class="codicon codicon-device-camera"></i> GALLERY</a>
@@ -71,74 +70,44 @@
             <span class="badge-pill"><i class="codicon codicon-broadcast"></i> Latest Dispatches</span>
             <h2 class="section-header">DISCOVER THE LATEST NEWS AND EVENTS IN AIS</h2>
         </div>
-
+<!-- DYNAMIC HEADLINE SLIDER -->
         <!-- Headline Image Slider (Item 4) -->
         <div style="max-width:1100px; margin:0 auto 36px; padding:0 24px;">
             <div class="swiper headline-swiper" style="height:380px; width:100%; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md);">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide"><img src="placeholder.png" alt="News Slider 1"></div>
-                    <div class="swiper-slide"><img src="placeholder.png" alt="News Slider 2"></div>
-                    <div class="swiper-slide"><img src="placeholder.png" alt="News Slider 3"></div>
+                     {% if slides %}
+                        {% for s in slides %}
+                    <div class="swiper-slide"><img src="{{ url_for('static', filename='placeholder.png') }}" alt="Placeholder" style="width:100%; height:100%; object-fit:cover;"></div>
+                     {% endfor %}
+                    {% else %}
+                    <div class="swiper-slide"><img src="{{ s['image_url'] }}" alt="{{ s['name'] }}" style="width:100%; height:100%; object-fit:cover;"></div>
+                    <div class="swiper-slide"><img src="{{ s['image_url'] }}" alt="{{ s['name'] }}" style="width:100%; height:100%; object-fit:cover;"></div>
+                     {% endif %}
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
         </div>
-
+<!-- DYNAMIC NEWS CARDS -->
         <section class="news-section">
             <!-- First News Article with Interactive Card Slider (Item 4) -->
+              {% if slides %}
+                {% for s in slides %}
             <div class="news">
                 <div class="news-image">
                     <div class="swiper card-swiper" style="height:100%; width:100%;">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="placeholder.png" alt="News Slide A"></div>
-                            <div class="swiper-slide"><img src="placeholder.png" alt="News Slide B"></div>
-                            <div class="swiper-slide"><img src="placeholder.png" alt="News Slide C"></div>
-                        </div>
-                        <div class="swiper-pagination"></div>
+                            <div class="swiper-slide"><img src="{{ url_for('static', filename='placeholder.png') }}" alt="Placeholder" style="width:100%; height:100%; object-fit:cover;"></div>
                     </div>
+                    {% endfor %}
+            {% else %}
                 </div>
                 <div class="article">
                     <p class="article-date"><i class="codicon codicon-calendar"></i> August 28, 2026</p>
-                    <h3>AIS Students Excel in 2026 WASSCE Examinations</h3>
-                    <p>Akosombo International School records its highest distinction rate to date, with over 90% of students achieving excellent grades across core science, business, and arts subjects.</p>
+                    <h3>{{ s['name'] }}</h3>
+                    <p>{{ s['description'] }}</p>
                 </div>
             </div>
-
-            <div class="news">
-                <div class="news-image"><img src="placeholder.png" alt="News Image"></div>
-                <div class="article">
-                    <p class="article-date"><i class="codicon codicon-calendar"></i> August 14, 2026</p>
-                    <h3>Inter-School Science Fair: AIS Takes First Place</h3>
-                    <p>Our talented science and robotics students brought home the gold at the Eastern Region Inter-School Science Fair, demonstrating innovative sustainability solutions.</p>
-                </div>
-            </div>
-
-            <div class="news">
-                <div class="news-image"><img src="placeholder.png" alt="News Image"></div>
-                <div class="article">
-                    <p class="article-date"><i class="codicon codicon-calendar"></i> July 30, 2026</p>
-                    <h3>New Digital Library Wing Officially Commissioned</h3>
-                    <p>AIS celebrates the opening of our state-of-the-art library facility, expanding digital access to over 10,000 reference books and e-learning resources for all students.</p>
-                </div>
-            </div>
-
-            <div class="news">
-                <div class="news-image"><img src="placeholder.png" alt="News Image"></div>
-                <div class="article">
-                    <p class="article-date"><i class="codicon codicon-calendar"></i> July 10, 2026</p>
-                    <h3>Annual Inter-House Sports Day 2026 Highlights</h3>
-                    <p>This year's sports day was a spectacular display of athletic talent, team spirit, and school pride. Blue House took home the overall championship cup.</p>
-                </div>
-            </div>
-
-            <div class="news">
-                <div class="news-image"><img src="placeholder.png" alt="News Image"></div>
-                <div class="article">
-                    <p class="article-date"><i class="codicon codicon-calendar"></i> June 20, 2026</p>
-                    <h3>Cultural Arts Week: Celebrating Ghana's Rich Heritage</h3>
-                    <p>Students from all grade levels participated in an unforgettable week of cultural performances, kente exhibitions, and traditional folklore.</p>
-                </div>
-            </div>
+              {% endif %}
         </section>
     </main>
 
@@ -147,7 +116,7 @@
         <div class="footer-wrapper">
             <div class="footer-logo">
                 <div class="logo-wrapper" style="height:64px; width:64px; background:#FFFFFF; margin-bottom:8px;">
-                    <img src="school_crest.png" alt="School Crest">
+                    <img src="{{ url_for('static', filename='school_crest.png') }}" alt="School Crest">
                 </div>
                 <h2>Akosombo International School</h2>
                 <p style="font-size:0.85rem; color:#94A3B8;">
@@ -184,6 +153,6 @@
 
     <!-- Swiper JS loaded BEFORE news.js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    <script src="news.js"></script>
+    <script src="{{ url_for('static', filename='news.js') }}"></script>
 </body>
 </html>

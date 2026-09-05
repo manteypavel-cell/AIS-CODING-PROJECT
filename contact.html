@@ -4,39 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | Akosombo International School</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts -->
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- Devicon -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    <!-- VS Code Codicons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@vscode/codicons/dist/codicon.css">
-    <link rel="icon" type="image/png" href="school_crest.png">
-    <script src="app.js" defer></script>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='school_crest.png') }}">
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
 </head>
 <body>
 
-    <!-- ═══════════════ HEADER (Logo in the Middle) ═══════════════ -->
     <header>
         <nav class="header">
-            <a href="index.html" class="link"><i class="codicon codicon-home"></i> HOME</a>
-            <a href="about.html" class="link"><i class="codicon codicon-info"></i> ABOUT US</a>
-            <a href="alumni.html" class="link"><i class="codicon codicon-organization"></i> ALUMNI</a>
+            <a href="/" class="link"><i class="codicon codicon-home"></i> HOME</a>
+            <a href="#" class="link"><i class="codicon codicon-info"></i> ABOUT US</a>
+            <a href="#" class="link"><i class="codicon codicon-organization"></i> ALUMNI</a>
 
-            <!-- Logo in the middle -->
-            <div class="logo-wrapper" onclick="window.location.href='index.html'" title="Akosombo International School">
-                <img src="school_crest.png" alt="School Crest">
+            <div class="logo-wrapper" onclick="window.location.href='/'" title="Akosombo International School">
+                <img src="{{ url_for('static', filename='school_crest.png') }}" alt="School Crest">
             </div>
 
-            <a href="gallery.html" class="link"><i class="codicon codicon-device-camera"></i> GALLERY</a>
-            <a href="news.html" class="link"><i class="codicon codicon-megaphone"></i> NEWS &amp; EVENTS</a>
-            <a href="contact.html" class="link active"><i class="codicon codicon-mail"></i> CONTACT US</a>
+            <a href="#" class="link"><i class="codicon codicon-device-camera"></i> GALLERY</a>
+            <a href="{{ url_for('news_page') }}" class="link"><i class="codicon codicon-megaphone"></i> NEWS &amp; EVENTS</a>
+            <a href="{{ url_for('contact_page') }}" class="link active"><i class="codicon codicon-mail"></i> CONTACT US</a>
 
-            <!-- Compact Sun & Moon Theme Toggle & Shortened Hamburger -->
             <div class="header-actions">
                 <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
                     <i class="fas fa-sun icon-sun"></i>
@@ -44,30 +37,16 @@
                     <div class="theme-toggle-thumb"></div>
                 </button>
                 <button class="hamburger-btn" aria-label="Toggle Menu" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <span></span><span></span><span></span>
                 </button>
             </div>
         </nav>
     </header>
 
-    <!-- Mobile Drawer -->
-    <div class="mobile-drawer" id="mobileDrawer">
-        <ul class="mobile-nav-links">
-            <li><a href="index.html" class="link"><i class="codicon codicon-home"></i> Home <i class="fas fa-chevron-right"></i></a></li>
-            <li><a href="about.html" class="link"><i class="codicon codicon-info"></i> About Us <i class="fas fa-chevron-right"></i></a></li>
-            <li><a href="alumni.html" class="link"><i class="codicon codicon-organization"></i> Alumni <i class="fas fa-chevron-right"></i></a></li>
-            <li><a href="gallery.html" class="link"><i class="codicon codicon-device-camera"></i> Gallery <i class="fas fa-chevron-right"></i></a></li>
-            <li><a href="news.html" class="link"><i class="codicon codicon-megaphone"></i> News &amp; Events <i class="fas fa-chevron-right"></i></a></li>
-            <li><a href="contact.html" class="link"><i class="codicon codicon-mail"></i> Contact Us <i class="fas fa-chevron-right"></i></a></li>
-        </ul>
-    </div>
-
     <main class="contact-page-main">
         <div class="form-container">
             <div class="logo-wrapper" style="height:64px; width:64px; background:#FFFFFF;">
-                <img src="school_crest.png" alt="AIS Crest">
+                <img src="{{ url_for('static', filename='school_crest.png') }}" alt="AIS Crest">
             </div>
             
             <div style="text-align:center;">
@@ -78,8 +57,7 @@
                 </p>
             </div>
 
-            <!-- Quick Direct Contact Action Badges -->
-            <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center;">
+            <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-bottom: 20px;">
                 <a href="tel:+233553248000" style="background:var(--bg-card-subtle); padding:8px 14px; border-radius:var(--radius-full); font-size:0.82rem; font-weight:700; color:var(--cyan-dark); display:inline-flex; align-items:center; gap:6px; border:1px solid var(--border-subtle);">
                     <i class="codicon codicon-call-incoming"></i> +233 553 248000
                 </a>
@@ -88,7 +66,15 @@
                 </a>
             </div>
 
-            <form action="#" method="POST" class="form" onsubmit="event.preventDefault(); alert('Thank you for reaching out to Akosombo International School! Our admissions office will get back to you shortly.');">
+            <!-- SUCCESS MESSAGE -->
+            {% if success %}
+            <div style="background-color: #d4edda; color: #155724; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; border: 1px solid #c3e6cb;">
+                <strong><i class="codicon codicon-check"></i> Message Sent!</strong> Thank you for reaching out to Akosombo International School. Our team will get back to you shortly.
+            </div>
+            {% endif %}
+
+            <!-- UPDATED FORM -->
+            <form action="/submit_message" method="POST" class="form">
                 <input type="text" name="firstName" id="contactFirstName" placeholder="First Name" required>
                 <input type="text" name="lastName" id="contactLastName" placeholder="Last Name" required>
                 <input type="email" name="email" id="contactEmail" placeholder="Email Address" required>
@@ -101,42 +87,17 @@
         </div>
     </main>
 
-    <!-- ═══════════════ FOOTER (Full School Name) ═══════════════ -->
     <footer>
         <div class="footer-wrapper">
             <div class="footer-logo">
                 <div class="logo-wrapper" style="height:64px; width:64px; background:#FFFFFF; margin-bottom:8px;">
-                    <img src="school_crest.png" alt="School Crest">
+                    <img src="{{ url_for('static', filename='school_crest.png') }}" alt="School Crest">
                 </div>
                 <h2>Akosombo International School</h2>
                 <p style="font-size:0.85rem; color:#94A3B8;">
                     Akosombo International School · Volta River Authority (VRA) Schools System.
                 </p>
             </div>
-
-            <section class="links">
-                <h2>QUICK LINKS</h2>
-                <ul>
-                    <li><a href="index.html"><i class="codicon codicon-home"></i> Home</a></li>
-                    <li><a href="about.html"><i class="codicon codicon-info"></i> About Us</a></li>
-                    <li><a href="alumni.html"><i class="codicon codicon-organization"></i> Our Alumni</a></li>
-                    <li><a href="gallery.html"><i class="codicon codicon-device-camera"></i> Gallery</a></li>
-                    <li><a href="news.html"><i class="codicon codicon-megaphone"></i> News &amp; Events</a></li>
-                    <li><a href="contact.html"><i class="codicon codicon-mail"></i> Contact Us</a></li>
-                </ul>
-            </section>
-
-            <section class="social-media">
-                <h2>CONNECT WITH US</h2>
-                <p style="font-size:0.85rem; color:#94A3B8; margin-bottom:12px;">Stay connected across all platforms:</p>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/vraschools" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Snapchat"><i class="fab fa-snapchat-ghost"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="#" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a>
-                </div>
-            </section>
         </div>
         <p class="credits">This site was developed by the AIS CODING PROJECT TEAM</p>
     </footer>
