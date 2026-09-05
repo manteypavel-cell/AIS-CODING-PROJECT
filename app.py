@@ -27,8 +27,7 @@ def news_page():
     conn = get_db_connection()
     slides = conn.execute('SELECT * FROM slides ORDER BY id DESC').fetchall()
     conn.close()
-    return render_template('news.html', slides=slides)
-
+    return {"status: Backend is running smoothly!"}
 @app.route('/register', methods=['POST'])
 def register():
     name = request.form.get('news_slide')
