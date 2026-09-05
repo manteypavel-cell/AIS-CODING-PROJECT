@@ -14,11 +14,14 @@ def get_db_connection():
     return conn
 
 # Admin Dashboard / Home Route
-@app.route('/')
+@app.route('/', methods=['POST', 'GET', 'HEAD'])
+
 def home():
     conn = get_db_connection()
     slides = conn.execute('SELECT * FROM slides ORDER BY id DESC').fetchall()
     conn.close()
+    if request.method in ['GET', 'HEAD']:
+        return jsonify({"status": "Backend is active and running"})
     return {"status: Backend is running smoothly!"}
 
 # Public News Feed Route
