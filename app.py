@@ -4,7 +4,8 @@ from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "https://my-flask-backend-7cwg.onrender.com"}})
-@app.route('/news')
+@app.route('/news', methods=['GET'])
+@cross_origin()
 def get_news():
     return jsonify({"status": "success", "data": []})
                      
