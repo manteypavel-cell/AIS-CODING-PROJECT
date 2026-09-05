@@ -5,7 +5,7 @@
 
 const getApiBase = () => {
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.01' || window.location.protocol === 'file:') {
-        return 'http://localhost: 5000/api';
+        return 'http://localhost:5000/api';
     }
     return 'https://my-flask-backend-7cwg.onrender.com/api';
 };
