@@ -19,7 +19,7 @@ def home():
     conn = get_db_connection()
     slides = conn.execute('SELECT * FROM slides ORDER BY id DESC').fetchall()
     conn.close()
-    return render_template('admin.html', slides=slides)
+    return {"status: Backend is running smoothly!"}
 
 # Public News Feed Route
 @app.route('/news')
