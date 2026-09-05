@@ -51,7 +51,7 @@ async function loadNews(){
         const response = await fetch(`${API_BASE}/news`);
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const data = await response.json();
-        console.log("News Data received:", data):
+        console.log("News Data received:", data);
     } catch (error) {
         console.error("Failed to load news articles:", error);
     }
