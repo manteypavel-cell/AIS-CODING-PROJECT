@@ -7,16 +7,8 @@ CORS(app, resources={r"/*": {"origins": "https://my-flask-backend-7cwg.onrender.
 @app.route('/news', methods=['GET'])
 @cross_origin()
 def get_news():
-    all_news = NewsPost.query.all()
-    news_list = []
-    for item in all_news:
-        news_list.append({
-            "title": item.title,
-            "content": item.content,
-            "image_url": item.image_url,
-            "date": item.date_posted.strftime('%B %d %Y')
-        })
-    return jsonify({"status": "success", "data": news_list})
+    
+    return jsonify({"status": "success", "data": []})
                      
 def get_db_connection():
     conn = sqlite3.connect('school.db') 
