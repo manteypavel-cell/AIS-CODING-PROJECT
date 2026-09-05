@@ -1,8 +1,13 @@
 import sqlite3
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
-
+CORS(app, resources={r"/*": {"origins": "https://my-flask-backend-7cwg.onrender.com"}})
+@app.route('/news')
+def get_news():
+    return jsonify({"status": "success", "data": []})
+                     
 def get_db_connection():
     conn = sqlite3.connect('school.db') 
     conn.row_factory = sqlite3.Row
