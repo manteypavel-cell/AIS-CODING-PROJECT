@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News &amp; Events | Akosombo International School</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Google Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@vscode/codicons/dist/codicon.css">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='school_crest.png') }}">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav class="header">
+            <a href="{{ url_for('home') }}" class="link"><i class="codicon codicon-home"></i> HOME</a>
+            <a href="{{ url_for('news_page') }}" class="link active"><i class="codicon codicon-megaphone"></i> NEWS &amp; EVENTS</a>
+        </nav>
+    </header>
+
+    <main>
+        <div style="padding: 40px 24px 16px; text-align:center;">
+            <span class="badge-pill"><i class="codicon codicon-broadcast"></i> Latest Dispatches</span>
+            <h2 class="section-header">DISCOVER THE LATEST NEWS AND EVENTS IN AIS</h2>
+        </div>
+
+        <!-- Dynamic News Feed from Database -->
+        <section class="news-section" style="max-width: 800px; margin: 0 auto; padding: 24px;">
+            {% if slides %}
+                {% for s in slides %}
+                    <div class="news" style="background: var(--bg-card); padding: 20px; border-radius: var(--radius-md); margin-bottom: 16px; box-shadow: var(--shadow-sm);">
+                        <div class="article">
+                            <p class="article-date"><i class="codicon codicon-calendar"></i> School Update</p>
+                            <h3>{{ s['name'] }}</h3>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p style="text-align: center; color: var(--text-muted);">No news or announcements published at this time.</p>
+            {% endif %}
+        </section>
+    </main>
+
+</body>
+</html>
