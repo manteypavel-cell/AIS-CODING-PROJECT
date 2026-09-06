@@ -71,43 +71,54 @@
             <h2 class="section-header">DISCOVER THE LATEST NEWS AND EVENTS IN AIS</h2>
         </div>
 <!-- DYNAMIC HEADLINE SLIDER -->
-        <!-- Headline Image Slider (Item 4) -->
+<!-- DYNAMIC HEADLINE SLIDER -->
         <div style="max-width:1100px; margin:0 auto 36px; padding:0 24px;">
             <div class="swiper headline-swiper" style="height:380px; width:100%; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md);">
                 <div class="swiper-wrapper">
-                     {% if slides %}
+                    {% if slides %}
                         {% for s in slides %}
-                    <div class="swiper-slide"><img src="{{ url_for('static', filename='placeholder.png') }}" alt="Placeholder" style="width:100%; height:100%; object-fit:cover;"></div>
-                     {% endfor %}
+                            <div class="swiper-slide">
+                                <img src="{{ s['image_url'] }}" alt="{{ s['name'] }}" style="width:100%; height:100%; object-fit:cover;">
+                            </div>
+                        {% endfor %}
                     {% else %}
-                    <div class="swiper-slide"><img src="{{ s['image_url'] }}" alt="{{ s['name'] }}" style="width:100%; height:100%; object-fit:cover;"></div>
-                    <div class="swiper-slide"><img src="{{ s['image_url'] }}" alt="{{ s['name'] }}" style="width:100%; height:100%; object-fit:cover;"></div>
-                     {% endif %}
+                        <!-- Fallback if there are no news items in the database -->
+                        <div class="swiper-slide">
+                            <img src="{{ url_for('static', filename='placeholder.png') }}" alt="Placeholder" style="width:100%; height:100%; object-fit:cover;">
+                        </div>
+                    {% endif %}
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
         </div>
 <!-- DYNAMIC NEWS CARDS -->
+        <!-- DYNAMIC NEWS CARDS -->
         <section class="news-section">
-            <!-- First News Article with Interactive Card Slider (Item 4) -->
-              {% if slides %}
+            {% if slides %}
                 {% for s in slides %}
-            <div class="news">
-                <div class="news-image">
-                    <div class="swiper card-swiper" style="height:100%; width:100%;">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide"><img src="{{ url_for('static', filename='placeholder.png') }}" alt="Placeholder" style="width:100%; height:100%; object-fit:cover;"></div>
+                    <div class="news">
+                        <div class="news-image">
+                            <div class="swiper card-swiper" style="height:100%; width:100%;">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <img src="{{ s['image_url'] }}" alt="{{ s['name'] }}" style="width:100%; height:100%; object-fit:cover;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="article">
+                            <p class="article-date"><i class="codicon codicon-calendar"></i> {{ s['date_posted'] }}</p>
+                            <h3>{{ s['name'] }}</h3>
+                            <p>{{ s['description'] }}</p>
+                        </div>
                     </div>
-                    {% endfor %}
+                {% endfor %}
             {% else %}
+                <div style="text-align: center; width: 100%; padding: 40px; color: var(--text-muted);">
+                    <h3>No recent news</h3>
+                    <p>Check back later for updates!</p>
                 </div>
-                <div class="article">
-                    <p class="article-date"><i class="codicon codicon-calendar"></i> August 28, 2026</p>
-                    <h3>{{ s['name'] }}</h3>
-                    <p>{{ s['description'] }}</p>
-                </div>
-            </div>
-              {% endif %}
+            {% endif %}
         </section>
     </main>
 

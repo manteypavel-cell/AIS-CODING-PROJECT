@@ -1,25 +1,76 @@
-<!-- MESSAGES MANAGEMENT SECTION -->
-<div class="admin-card-container" style="background: var(--bg-card); padding: 24px; border-radius: var(--radius-lg); margin-top: 24px;">
-    <h2>Recent Inquiries (Contact Us)</h2>
-    <ul style="list-style: none; padding: 0; margin-top: 12px;">
-        {% for m in messages %}
-            <li style="padding: 15px; border: 1px solid var(--border-subtle); border-radius: 8px; margin-bottom: 15px; background: var(--bg-card-subtle);">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-                    <strong style="font-size: 1.1rem;"><i class="codicon codicon-person"></i> {{ m['first_name'] }} {{ m['last_name'] }}</strong>
-                    <span style="font-size: 0.85rem; color: var(--text-muted);"><i class="codicon codicon-clock"></i> {{ m['date_sent'] }}</span>
-                </div>
-                <p style="font-size: 0.9rem; margin-bottom: 8px;"><strong>Email:</strong> <a href="mailto:{{ m['email'] }}" style="color: var(--cyan-dark);">{{ m['email'] }}</a></p>
-                <div style="background: var(--bg-card); padding: 12px; border-radius: 6px; border: 1px solid var(--border-subtle); font-size: 0.95rem;">
-                    {{ m['reason'] }}
-                </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal | Akosombo International School</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@vscode/codicons/dist/codicon.css">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='school_crest.png') }}">
+    <script src="{{ url_for('static', filename='admin.js') }}" defer></script>
+</head>
+<body class="admin-body">
+
+    <header class="admin-navbar">
+        <a href="{{ url_for('home') }}" class="admin-brand">
+            <img src="{{ url_for('static', filename='school_crest.png') }}" alt="AIS Crest">
+            <div class="admin-brand-text">
+                <h1>Akosombo International School</h1>
+                <span>Staff &amp; Content Management Portal</span>
+            </div>
+        </a>
+        <div class="admin-nav-actions">
+            <a href="{{ url_for('news_page') }}" class="btn-secondary" target="_blank">
+                <i class="codicon codicon-globe"></i> View Site
+            </a>
+        </div>
+    </header>
+
+    <div class="admin-layout" style="padding: 40px;">
+        <main class="admin-content" style="width: 100%; max-width: 800px; margin: 0 auto;">
+            
+            <div class="admin-card-container" style="background: var(--bg-card); padding: 24px; border-radius: var(--radius-lg);">
+                <h2>Manage News Announcements</h2>
                 
-                <form action="/delete_message" method="POST" style="margin-top: 12px; text-align: right;">
-                    <input type="hidden" name="message_id" value="{{ m['id'] }}">
-                    <button type="submit" style="background-color: #dc3545; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">Delete Message</button>
+                <!-- Expanded Post Form -->
+                <form action="/register" method="POST" style="margin-top: 20px; display: flex; flex-direction: column; gap: 15px;">
+                    <input type="text" name="news_slide" placeholder="Post News Headline..." required style="padding: 10px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                    
+                    <input type="text" name="image_url" placeholder="Image URL (e.g., https://link-to-image.jpg or /static/image.png)" style="padding: 10px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+                    
+                    <textarea name="description" placeholder="Write the news details here..." rows="4" required style="padding: 10px; border-radius: var(--radius-md); border: 1px solid var(--border-subtle); resize: vertical;"></textarea>
+                    
+                    <button type="submit" class="btn-primary" style="padding: 10px 20px; align-self: flex-start;">Post Announcement</button>
                 </form>
-            </li>
-        {% else %}
-            <p style="color: var(--text-muted);">No new messages found.</p>
-        {% endfor %}
-    </ul>
-</div>
+
+                <hr style="margin: 24px 0; border:0; border-top: 1px solid var(--border-subtle);">
+
+                <h3>Current Announcements</h3>
+                <ul style="list-style: none; padding: 0; margin-top: 12px;">
+                    {% for s in slides %}
+                        <li style="display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--border-subtle);">
+                            <div>
+                                <strong style="display: block;">{{ s['name'] }}</strong>
+                                <span style="font-size: 0.85rem; color: var(--text-muted);">{{ s['date_posted'] }}</span>
+                            </div>
+                            <form action="/delete_news" method="POST" style="display:inline; margin:0;">
+                                <input type="hidden" name="slide_id" value="{{ s['id'] }}">
+                                <button type="submit" style="background-color: #dc3545; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer;">Delete</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <p style="color: var(--text-muted);">No news announcements found.</p>
+                    {% endfor %}
+                </ul>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
