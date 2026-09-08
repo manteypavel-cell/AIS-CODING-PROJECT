@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News &amp; Events | Akosombo International School</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Devicon -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <!-- VS Code Codicons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@vscode/codicons/dist/codicon.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+    <link rel="icon" type="image/png" href="school_crest.png">
+    <script src="app.js" defer></script>
+</head>
+<body>
+
+    <!-- ═══════════════ HEADER (Logo in the Middle) ═══════════════ -->
+    <header>
+        <nav class="header">
+            <a href="index.html" class="link"><i class="codicon codicon-home"></i> HOME</a>
+            <a href="about.html" class="link"><i class="codicon codicon-info"></i> ABOUT US</a>
+            <a href="alumni.html" class="link"><i class="codicon codicon-organization"></i> ALUMNI</a>
+
+            <!-- Logo in the middle -->
+            <div class="logo-wrapper" onclick="window.location.href='index.html'" title="Akosombo International School">
+                <img src="school_crest.png" alt="School Crest">
+            </div>
+
+            <a href="gallery.html" class="link"><i class="codicon codicon-device-camera"></i> GALLERY</a>
+            <a href="news.html" class="link active"><i class="codicon codicon-megaphone"></i> NEWS &amp; EVENTS</a>
+            <a href="contact.html" class="link"><i class="codicon codicon-mail"></i> CONTACT US</a>
+
+            <!-- Compact Sun & Moon Theme Toggle & Shortened Hamburger -->
+            <div class="header-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Light/Dark Mode">
+                    <i class="fas fa-sun icon-sun"></i>
+                    <i class="fas fa-moon icon-moon"></i>
+                    <div class="theme-toggle-thumb"></div>
+                </button>
+                <button class="hamburger-btn" aria-label="Toggle Menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobileDrawer">
+        <ul class="mobile-nav-links">
+            <li><a href="index.html" class="link"><i class="codicon codicon-home"></i> Home <i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="about.html" class="link"><i class="codicon codicon-info"></i> About Us <i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="alumni.html" class="link"><i class="codicon codicon-organization"></i> Alumni <i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="gallery.html" class="link"><i class="codicon codicon-device-camera"></i> Gallery <i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="news.html" class="link"><i class="codicon codicon-megaphone"></i> News &amp; Events <i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="contact.html" class="link"><i class="codicon codicon-mail"></i> Contact Us <i class="fas fa-chevron-right"></i></a></li>
+        </ul>
+    </div>
+
+    <main>
+        <div style="padding: 40px 24px 16px; text-align:center;">
+            <span class="badge-pill"><i class="codicon codicon-broadcast"></i> Latest Dispatches</span>
+            <h2 class="section-header">DISCOVER THE LATEST NEWS AND EVENTS IN AIS</h2>
+        </div>
+
+        <!-- Headline Image Slider (Item 4) -->
+        <div style="max-width:1100px; margin:0 auto 36px; padding:0 24px;">
+            <div class="swiper headline-swiper" style="height:380px; width:100%; border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md);">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="placeholder.png" alt="News Slider 1"></div>
+                    <div class="swiper-slide"><img src="placeholder.png" alt="News Slider 2"></div>
+                    <div class="swiper-slide"><img src="placeholder.png" alt="News Slider 3"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <section class="news-section">
+            <!-- First News Article with Interactive Card Slider (Item 4) -->
+            <div class="news">
+                <div class="news-image">
+                    <div class="swiper card-swiper" style="height:100%; width:100%;">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"><img src="placeholder.png" alt="News Slide A"></div>
+                            <div class="swiper-slide"><img src="placeholder.png" alt="News Slide B"></div>
+                            <div class="swiper-slide"><img src="placeholder.png" alt="News Slide C"></div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+                <div class="article">
+                    <p class="article-date"><i class="codicon codicon-calendar"></i> August 28, 2026</p>
+                    <h3>AIS Students Excel in 2026 WASSCE Examinations</h3>
+                    <p>Akosombo International School records its highest distinction rate to date, with over 90% of students achieving excellent grades across core science, business, and arts subjects.</p>
+                </div>
+            </div>
+
+            <div class="news">
+                <div class="news-image"><img src="placeholder.png" alt="News Image"></div>
+                <div class="article">
+                    <p class="article-date"><i class="codicon codicon-calendar"></i> August 14, 2026</p>
+                    <h3>Inter-School Science Fair: AIS Takes First Place</h3>
+                    <p>Our talented science and robotics students brought home the gold at the Eastern Region Inter-School Science Fair, demonstrating innovative sustainability solutions.</p>
+                </div>
+            </div>
+
+            <div class="news">
+                <div class="news-image"><img src="placeholder.png" alt="News Image"></div>
+                <div class="article">
+                    <p class="article-date"><i class="codicon codicon-calendar"></i> July 30, 2026</p>
+                    <h3>New Digital Library Wing Officially Commissioned</h3>
+                    <p>AIS celebrates the opening of our state-of-the-art library facility, expanding digital access to over 10,000 reference books and e-learning resources for all students.</p>
+                </div>
+            </div>
+
+            <div class="news">
+                <div class="news-image"><img src="placeholder.png" alt="News Image"></div>
+                <div class="article">
+                    <p class="article-date"><i class="codicon codicon-calendar"></i> July 10, 2026</p>
+                    <h3>Annual Inter-House Sports Day 2026 Highlights</h3>
+                    <p>This year's sports day was a spectacular display of athletic talent, team spirit, and school pride. Blue House took home the overall championship cup.</p>
+                </div>
+            </div>
+
+            <div class="news">
+                <div class="news-image"><img src="placeholder.png" alt="News Image"></div>
+                <div class="article">
+                    <p class="article-date"><i class="codicon codicon-calendar"></i> June 20, 2026</p>
+                    <h3>Cultural Arts Week: Celebrating Ghana's Rich Heritage</h3>
+                    <p>Students from all grade levels participated in an unforgettable week of cultural performances, kente exhibitions, and traditional folklore.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ═══════════════ FOOTER (Full School Name) ═══════════════ -->
+    <footer>
+        <div class="footer-wrapper">
+            <div class="footer-logo">
+                <div class="logo-wrapper" style="height:64px; width:64px; background:#FFFFFF; margin-bottom:8px;">
+                    <img src="school_crest.png" alt="School Crest">
+                </div>
+                <h2>Akosombo International School</h2>
+                <p style="font-size:0.85rem; color:#94A3B8;">
+                    Akosombo International School · Volta River Authority (VRA) Schools System.
+                </p>
+            </div>
+
+            <section class="links">
+                <h2>QUICK LINKS</h2>
+                <ul>
+                    <li><a href="index.html"><i class="codicon codicon-home"></i> Home</a></li>
+                    <li><a href="about.html"><i class="codicon codicon-info"></i> About Us</a></li>
+                    <li><a href="alumni.html"><i class="codicon codicon-organization"></i> Our Alumni</a></li>
+                    <li><a href="gallery.html"><i class="codicon codicon-device-camera"></i> Gallery</a></li>
+                    <li><a href="news.html"><i class="codicon codicon-megaphone"></i> News &amp; Events</a></li>
+                    <li><a href="contact.html"><i class="codicon codicon-mail"></i> Contact Us</a></li>
+                </ul>
+            </section>
+
+            <section class="social-media">
+                <h2>CONNECT WITH US</h2>
+                <p style="font-size:0.85rem; color:#94A3B8; margin-bottom:12px;">Stay connected across all platforms:</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/vraschools" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Snapchat"><i class="fab fa-snapchat-ghost"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </section>
+        </div>
+        <p class="credits">This site was developed by the AIS CODING PROJECT TEAM</p>
+    </footer>
+
+    <!-- Swiper JS loaded BEFORE news.js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="news.js"></script>
+</body>
+</html>
