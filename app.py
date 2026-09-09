@@ -11,7 +11,7 @@ app.secret_key = "ais_secret_key_change_in_production"
 ADMIN_USERNAME = "aisadmin"
 ADMIN_PASSWORD_HASH = generate_password_hash("iamanadmin")
 @app.route("/")
-def home():
+def admin_home():
     return render_template('index.html')
 def get_db_connection():
     conn = sqlite3.connect("school.db")
