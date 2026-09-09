@@ -206,7 +206,7 @@ header {
 }
 
 nav.header {
-    max-width: 1240px;
+    max-width: 1300px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -215,6 +215,7 @@ nav.header {
     height: 84px;
     padding: 0 20px;
     position: relative;
+    padding-left:190px;
 }
 
 /**Styling the header's border**/
@@ -345,6 +346,8 @@ nav.header::after{
     display: flex;
     align-items: center;
     gap: 12px;
+    justify-self:right;
+    padding-left:65px;
 }
 
 /* ════════════════════════════════════════════════
