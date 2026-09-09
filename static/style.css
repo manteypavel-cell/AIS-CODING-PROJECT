@@ -215,7 +215,7 @@ nav.header {
     height: 84px;
     padding: 0 20px;
     position: relative;
-    padding-left:200px;
+    padding-left:240px;
 }
 
 /**Styling the header's border**/
@@ -268,7 +268,7 @@ nav.header::after{
 .link {
     color: var(--text-dark);
     text-decoration: none;
-    font-size: 0.88rem;
+    font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 1.2px;
     text-transform: uppercase;
@@ -346,8 +346,7 @@ nav.header::after{
     display: flex;
     align-items: center;
     gap: 12px;
-    justify-self:right;
-    padding-left:65px;
+    margin-left:45px;
 }
 
 /* ════════════════════════════════════════════════
