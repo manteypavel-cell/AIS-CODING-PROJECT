@@ -1,15 +1,17 @@
 from datetime import datetime
 from functools import wraps
+import os
 import sqlite3
 from flask import Flask, redirect, render_template, request, url_for, session, flash
 from werkzeug.security import check_password_hash, generate_password_hash
 
 app = Flask(__name__)
-app.secret_key = "ais_secret_key_change_in_production"
+app.secret_key = os.environ.get("SECRET_KEY", "ais_secret_key_change_in_production")
 
-# Default Admin Credentials
-ADMIN_USERNAME = "aisadmin"
-ADMIN_PASSWORD_HASH = generate_password_hash("iamanadmin")
+# Default Admin Credentials (override with env vars on Render so real
+# credentials never sit in the source code / GitHub repo)
+ADMIN_USERNAME = os.environ.get("ADMIN_USERNAME", "aisadmin")
+ADMIN_PASSWORD_HASH = generate_password_hash(os.environ.get("ADMIN_PASSWORD", "iamanadmin"))
 @app.route("/")
 def admin_home():
     return render_template('index.html')
