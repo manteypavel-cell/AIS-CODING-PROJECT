@@ -6,7 +6,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 app = Flask(__name__)
 app.secret_key = "ais_secret_key_change_in_production"
-
+@app.route("/")
 # Default Admin Credentials
 ADMIN_USERNAME = "aisadmin"
 ADMIN_PASSWORD_HASH = generate_password_hash("iamanadmin")
