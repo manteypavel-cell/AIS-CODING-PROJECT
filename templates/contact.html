@@ -22,9 +22,9 @@
             <a href="#" class="link"><i class="codicon codicon-info"></i> ABOUT US</a>
             <a href="#" class="link"><i class="codicon codicon-organization"></i> ALUMNI</a>
 
-            <div class="logo-wrapper" onclick="window.location.href='/'" title="Akosombo International School">
+            <div class="logo-wrapper" onclick="window.location.href='/'" title="Akosombo International School"></div>
 
-            <a href="#" class="link"><i class="codicon codicon-device-camera"></i> GALLERY</a>
+            <a href="{{url_for('static', filename='gallery_page')}}" class="link"><i class="codicon codicon-device-camera"></i> GALLERY</a>
             <a href="{{ url_for('news_page') }}" class="link"><i class="codicon codicon-megaphone"></i> NEWS &amp; EVENTS</a>
             <a href="{{ url_for('contact_page') }}" class="link active"><i class="codicon codicon-mail"></i> CONTACT US</a>
 
