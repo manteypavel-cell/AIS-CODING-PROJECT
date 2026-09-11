@@ -215,16 +215,16 @@ nav.header {
     height: 84px;
     padding: 0 20px;
     position: relative;
-    padding-left:240px;
+    padding-left:130px;
 }
 
 /**Styling the header's border**/
-nav.header > *{
+header > *{
     position: relative;
     z-index:2;
 }
 
-nav.header::after{
+header::after{
     content: "";
     position: absolute;
     inset: 0;
