@@ -19,7 +19,7 @@
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
     <link rel="icon" type="image/png" href="school_crest.png">
-    <script src="app.js" defer></script>
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
 </head>
 <body>
 
@@ -525,5 +525,7 @@
             },
         });
     </script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='news.js') }}"></script>
 </body>
 </html>
