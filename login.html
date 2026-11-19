@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - School Admin Portal</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="login-page">
+    <div class="form-container">
+      <div class="logo-wrapper" onclick="window.location.href='{{ url_for('index') }}'" title="Akosombo International School">
+        <img src="{{ url_for('static', filename='school_crest.png') }}" alt="School Crest">
+      </div>
+
+      <!-- Flash message display for login errors -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="flash-message {{ category }}" style="color: red; margin-bottom: 1rem; text-align: center;">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <form class="form" action="{{ url_for('login') }}" method="POST">
+        <h2>Log In</h2>
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        
+        <div class="logged-in">
+          <input type="checkbox" name="keepLoggedIn" id="keepLoggedIn">
+          <label for="keepLoggedIn">Keep me signed in?</label>
+        </div>
+        
+        <button type="submit" class="cta1" style="width:100%; height:46px; border-radius:var(--radius-md);">
+          <i class="codicon codicon-send"></i> 
+          Log In
+        </button>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
